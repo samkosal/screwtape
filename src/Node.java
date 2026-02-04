@@ -39,6 +39,25 @@ public class Node {
    */
   public Node(List<Integer> list) {
     // TODO: implement this
+    if (list == null) {
+      throw new IllegalArgumentException("null list.");
+    }
+    if (list.isEmpty()) {
+      throw new IllegalArgumentException("empty list.");
+    }
+    // Node current = new Node(list.get(0));
+    this.value = list.get(0);
+    Node head = this;
+    Node newNode = null;
+
+    for (int i = 1; i < list.size(); i++) {
+      newNode = new Node(list.get(i));
+
+      head.next = newNode;
+      newNode.prev = head;
+
+      head = newNode;
+    }
   }
 
   /**
@@ -49,6 +68,12 @@ public class Node {
    */
   public List<Integer> toList() {
     // TODO: Implement this
+      
+
+
+
+    //return a list of intergers
     return null;
   }
+
 }
