@@ -168,6 +168,19 @@ public class ScrewtapeInterpreter {
   public String execute(String program) {
     // TODO: Implement this
     // If you get stuck, you can look at hint.md for a hint
-    return null;
+    tapeHead.value = 72;
+    // String test = String.valueOf(tapeHead.value);
+    int value = tapeHead.value;
+    Character testChar = (char) value;
+    String test = testChar.toString();
+    return test;
+  }
+
+  public static void main(String[] args) {
+    ScrewtapeInterpreter interpreter = new ScrewtapeInterpreter();
+    // example test
+    String program = "+";
+    String output = interpreter.execute(program);
+    System.out.println("Output: " + output);
   }
 }
