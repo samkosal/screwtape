@@ -107,6 +107,22 @@ public class ScrewtapeInterpreter {
   public Map<Integer, Integer> bracketMap(String program) {
     // TODO: Implement this
     // Hint: use a stack
+    
+    //loop through string using chartoarray() for each char.
+      //if (current iteration is opening bracket)
+        // then add the index value into the stack
+      //if else the current iteration is closing bracket 
+        //if stack is empty
+          // throw IllegalArgumentException
+        // pop the top of the stack and store it as 'value'
+        // then add the value variable and the current i into the map
+      
+      
+      // if (after the loop is finished), there is a value inside the stack still,
+        // throw IllegalArgumentException
+
+
+    // else return the map
     return null;
   }
 

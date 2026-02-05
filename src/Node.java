@@ -47,16 +47,22 @@ public class Node {
       throw new IllegalArgumentException("empty list.");
     }
     // Node current = new Node(list.get(0));
+    //takes care of the first iteration
     this.value = list.get(0);
     Node head = this;
+
+    // new node for grabing each iteration
     Node newNode = null;
 
+    // for loop counter start at the SECOND Iteration
     for (int i = 1; i < list.size(); i++) {
       newNode = new Node(list.get(i));
 
+      //doubly arrow assigned
       head.next = newNode;
       newNode.prev = head;
 
+      // moving on to next iteration
       head = newNode;
     }
   }
