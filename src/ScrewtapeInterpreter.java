@@ -166,14 +166,74 @@ public class ScrewtapeInterpreter {
    * @throws IllegalArgumentException If the program contains unmatched brackets.
    */
   public String execute(String program) {
+    /**
+ * A Screwtape interpreter that executes programs written in the Screwtape esoteric programming language.
+ * 
+ * Screwtape is a minimalistic language with the following commands:
+ * 
+ * - `>`: Move the tape pointer to the next memory node.
+ * - `<`: Move the tape pointer to the previous memory node.
+ * - `+`: Increment the value in the current memory node.
+ * - `-`: Decrement the value in the current memory node.
+ * - `.`: Output the character represented by the value in the current memory node.
+ * - `[`: Do nothing
+ * - `]`: If the value in the current memory node is not 0, jump back to the matching `[`.
+ * 
+ * This interpreter provides methods to manipulate the memory tape, execute programs, and handle loops efficiently.
+ */
     // TODO: Implement this
     // If you get stuck, you can look at hint.md for a hint
-    tapeHead.value = 72;
-    // String test = String.valueOf(tapeHead.value);
-    int value = tapeHead.value;
-    Character testChar = (char) value;
-    String test = testChar.toString();
-    return test;
+    // tapeHead.value = 72;
+    // // String test = String.valueOf(tapeHead.value);
+    // int value = tapeHead.value;
+    // Character testChar = (char) value;
+    // String test = testChar.toString();
+    // return test;
+
+
+    //import the map of all the brackets from bracketMaps()
+    //create String result (for returning the final decoded message)
+
+    //loop through the string using for i loop
+      //if current iteration equal '>'
+        //if (check if there is an existing next node) if tapepointer.next == null
+          //*CREATE A Next node*
+          // create a newNode = new Node(0);
+
+          // tapepointer.next = newNode;
+          // newNode.prev = tapepointer;
+      
+        //moves to the next pointer using tapepointer
+
+      //if current iteration equal '<'
+        //if (check if there is an existing prev node) if tapepointer.prev == null
+          //*CREATE A prev node*
+          // create a newNode = new Node(0);
+
+          // tapepointer.prev = newNode;
+          // newNode.next = tapepointer;
+      
+        //moves to the next pointer using tapepointer
+      
+      //if current iteration equal '+'
+        // tapepointer.value += 1;
+
+      //if current iteration equal '-'
+        // tapepointer.value += 1;
+
+      //if current iteration equal '.'
+        //*grab the value, convert the int into char, char into string, then add it to variable 'output' */
+        // int value = tapepointer.value;
+        // Character testChar = (char) value;
+        // String test = testChar.toString();
+        // output += test;
+
+      //if current iteration equal ']'
+        //grab the current iteration index (value i in the loop)
+        //search for the same key inside the map and grab the value (using .get(key))
+        //set i = value;
+
+    return null;
   }
 
   public static void main(String[] args) {
