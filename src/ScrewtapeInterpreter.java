@@ -226,10 +226,10 @@ public class ScrewtapeInterpreter {
           tapePointer.prev = newNode;
           newNode.next = tapePointer;
       
+        }
         //moves to the next pointer using tapepointer
         tapePointer = tapePointer.prev;
         tapeHead = tapePointer;
-        }
       }
       //if current iteration equal '+'
       if (program.charAt(i) == '+') {
@@ -252,23 +252,17 @@ public class ScrewtapeInterpreter {
         result += test;
       }
 
-      //if current iteration equal ']'
+      //if current iteration equal ']' and we check if its equal to zero
       if (program.charAt(i) == ']') {
-        //grab the current iteration index (value i in the loop)
-        //search for the same key inside the map and grab the value (using .get(key))
-        int value = bracketsMap.get(i);
-        //set i = value;
-        i = value;
+        if (tapePointer.value != 0) {
+          //grab the current iteration index (value i in the loop)
+          //search for the same key inside the map and grab the value (using .get(key))
+          int value = bracketsMap.get(i);
+          //set i = value;
+          i = value;
+        }
       }
     }
     return result;
-  }
-
-  public static void main(String[] args) {
-    ScrewtapeInterpreter interpreter = new ScrewtapeInterpreter();
-    // example test
-    String program = "+";
-    String output = interpreter.execute(program);
-    System.out.println("Output: " + output);
   }
 }
