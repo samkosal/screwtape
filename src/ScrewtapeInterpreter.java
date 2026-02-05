@@ -192,48 +192,76 @@ public class ScrewtapeInterpreter {
 
 
     //import the map of all the brackets from bracketMaps()
+    Map<Integer,Integer> bracketsMap = bracketMap(program);
     //create String result (for returning the final decoded message)
+    String result = "";
 
     //loop through the string using for i loop
+    for (int i = 0; i < program.length(); i++) {
       //if current iteration equal '>'
+      if (program.charAt(i) == '>') {
         //if (check if there is an existing next node) if tapepointer.next == null
+        if (tapePointer.next == null) {
           //*CREATE A Next node*
           // create a newNode = new Node(0);
+          Node newNode = new Node(0);
 
-          // tapepointer.next = newNode;
-          // newNode.prev = tapepointer;
-      
+          //doubly arrow assigned
+          tapePointer.next = newNode;
+          newNode.prev = tapePointer;
+        }
         //moves to the next pointer using tapepointer
+        tapePointer = tapePointer.next;
 
+      }
       //if current iteration equal '<'
+      if (program.charAt(i) == '<') {
         //if (check if there is an existing prev node) if tapepointer.prev == null
+        if (tapePointer.prev == null) {
           //*CREATE A prev node*
           // create a newNode = new Node(0);
+          Node newNode = new Node(0);
 
-          // tapepointer.prev = newNode;
-          // newNode.next = tapepointer;
+          //doubly arrow assigned
+          tapePointer.prev = newNode;
+          newNode.next = tapePointer;
       
         //moves to the next pointer using tapepointer
-      
+        tapePointer = tapePointer.prev;
+        tapeHead = tapePointer;
+        }
+      }
       //if current iteration equal '+'
+      if (program.charAt(i) == '+') {
         // tapepointer.value += 1;
+        tapePointer.value += 1;
+      }
 
       //if current iteration equal '-'
+      if (program.charAt(i) == '-') {
         // tapepointer.value += 1;
+        tapePointer.value -= 1;
+      }
 
       //if current iteration equal '.'
+      if (program.charAt(i) == '.') {
         //*grab the value, convert the int into char, char into string, then add it to variable 'output' */
-        // int value = tapepointer.value;
-        // Character testChar = (char) value;
-        // String test = testChar.toString();
-        // output += test;
+        int value = tapePointer.value;
+        Character testChar = (char) value;
+        String test = testChar.toString();
+        result += test;
+      }
 
       //if current iteration equal ']'
+      if (program.charAt(i) == ']') {
         //grab the current iteration index (value i in the loop)
         //search for the same key inside the map and grab the value (using .get(key))
+        int value = bracketsMap.get(i);
         //set i = value;
-
-    return null;
+        i = value;
+      }
+    }
+    return result;
   }
 
   public static void main(String[] args) {
